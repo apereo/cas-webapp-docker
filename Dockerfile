@@ -24,7 +24,7 @@ RUN set -x; \
 
 # Download the CAS overlay project \
 RUN cd / \
-    && git clone -b 4.2 --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay \
+    && git clone https://github.com/apereo/cas-overlay-template.git cas-overlay \
     && mkdir /etc/cas \
     && mkdir /etc/cas/jetty \
     && mkdir -p cas-overlay/bin \
