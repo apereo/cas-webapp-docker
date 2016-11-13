@@ -2,7 +2,8 @@
 
 ## Introduction
 
-This branch hosts the [Docker](https://www.docker.com/) build configuration necessary to build a CAS image. See the `Dockerfile` for more info. 
+This repository hosts the [Docker](https://www.docker.com/) build configuration necessary to build a [CAS](https://github.com/apereo/cas) image. 
+See the `Dockerfile` for more info. 
 
 ## Versions
 
