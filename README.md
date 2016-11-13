@@ -10,16 +10,13 @@ A docker image for CAS server. Images are tagged to match CAS server releases.
 
 ## Requirements
 
-* Docker version `1.9.x` ~ `1.10.3`
-
-**NOTE:** [Docker Native for Mac/Windows](https://www.docker.com/docker-news-and-press/docker-released-native-mac-and-windows-apps-optimize-developer-experience) is untested.
+* Docker version `1.9.x` ~ `1.12.3`
 
 ## Configuration
 
 ### Image
 
 * The image will be available on the host via ports `80` and `443`
-* The image may be accessed via the host browser at the container-provided IP address. You may determine the IP address via `docker inspect $CONTAINER_ID`
 * The CAS server will be deployed inside an embedded [Jetty container](http://www.eclipse.org/jetty/) that is built into the [CAS overlay project](http://bit.ly/1PPY47q).
 * You must check the `Dockerfile` to ensure the right branch from the [CAS overlay project](http://bit.ly/1PPY47q) is pulled/cloned.
 * Check the [CAS overlay project](http://bit.ly/1PPY47q) itself to figure out the targetted CAS release.
@@ -37,15 +34,6 @@ A docker image for CAS server. Images are tagged to match CAS server releases.
 * The embedded Jetty is pre-configured to use that keystore for HTTPS requests.
 
 ## Build
-
-Start Docker:
-
-```bash
-docker-machine start
-docker-machine env
-```
-
-Run the `eval` command next.
 
 **Make sure** that both `build.sh` and `run.sh` are updated to build the appropriate tag. Docker tags **MUST** correspond
 to CAS server versions. 

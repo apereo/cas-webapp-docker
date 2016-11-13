@@ -8,10 +8,10 @@ RUN yum -y install wget tar git-all \
     && yum -y clean all
 
 RUN set -x; \
-    java_version=8u65; \
-    java_bnumber=17; \
-    java_semver=1.8.0_65; \
-    java_hash=0e46f8669719a5d2ffa586afe3d6f3cc2560691edcd9e0a032943e82922a9c8a; \
+    java_version=8u112; \
+    java_bnumber=15; \
+    java_semver=1.8.0_112; \
+    java_hash=eb51dc02c1607be94249dc28b0223be3712b618ef72f48d3e2bfd2645db8b91a; \
 
 # Download Java, verify the hash, and install \
     cd / \
