@@ -38,19 +38,20 @@ RUN set -x; \
 
 # Download the CAS overlay project \
 RUN cd / \
-    && git clone -b 4.2 --depth 1 --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay \
-    && mkdir /etc/cas \
-    && mkdir /etc/cas/jetty \
+    && git clone --depth 1 --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay \
+    && mkdir -p /etc/cas \
+    && mkdir -p /etc/cas/services \
+    && mkdir -p /etc/cas/config \
+    && mkdir -p /etc/cas/config \
     && mkdir -p cas-overlay/bin \
-    && mkdir -p cas-overlay/src/main/webapp \
-    && cp -f cas-overlay/etc/*.* /etc/cas;
+    && cp -f cas-overlay/etc/cas/config/*.* /etc/cas/config;
 
-COPY src/main/webapp/ cas-overlay/src/main/webapp/
-COPY thekeystore /etc/cas/jetty/
+COPY thekeystore /etc/cas/
 COPY bin/*.* cas-overlay/bin/
 
 RUN chmod -R 750 cas-overlay/bin \
     && chmod 750 cas-overlay/mvnw \
+    && chmod 750 cas-overlay/build.sh \
     && chmod 750 /opt/jre-home/bin/java;
 
 # Enable if you are using Oracle Java
@@ -65,4 +66,4 @@ ENV PATH $PATH:$JAVA_HOME/bin:.
 
 RUN ./mvnw clean package
 
-CMD ["/cas-overlay/bin/run-jetty.sh"]
+CMD ["/cas-overlay/bin/run-cas.sh"]
