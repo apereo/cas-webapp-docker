@@ -18,9 +18,9 @@ A docker image for CAS server. Images are tagged to match CAS server releases.
 ### Image
 
 * The image will be available on the host via ports `8080` and `8443`
-* The CAS server will be deployed inside an embedded [Jetty container](http://www.eclipse.org/jetty/) that is built into the [CAS overlay project](http://bit.ly/1PPY47q).
-* You must check the `Dockerfile` to ensure the right branch from the [CAS overlay project](http://bit.ly/1PPY47q) is pulled/cloned.
-* Check the [CAS overlay project](http://bit.ly/1PPY47q) itself to figure out the targetted CAS release.
+* The CAS server will be deployed inside an embedded [Jetty container](http://www.eclipse.org/jetty/) that is built into the [CAS overlay project](https://github.com/apereo/cas-overlay-template).
+* You must check the `Dockerfile` to ensure the right branch from the [CAS overlay project](https://github.com/apereo/cas-overlay-template) is pulled/cloned.
+* Check the [CAS overlay project](https://github.com/apereo/cas-overlay-template) itself to figure out the targetted CAS release.
 
 ## CAS Overlay
 
