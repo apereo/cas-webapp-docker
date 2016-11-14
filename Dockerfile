@@ -64,6 +64,6 @@ WORKDIR /cas-overlay
 ENV JAVA_HOME /opt/jre-home
 ENV PATH $PATH:$JAVA_HOME/bin:.
 
-RUN ./mvnw clean package
+RUN ./mvnw clean package -T 10
 
 CMD ["/cas-overlay/bin/run-cas.sh"]
