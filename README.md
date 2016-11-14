@@ -18,21 +18,15 @@ A docker image for CAS server. Images are tagged to match CAS server releases.
 ### Image
 
 * The image will be available on the host via ports `8080` and `8443`
-* The CAS server will be deployed inside an embedded [Jetty container](http://www.eclipse.org/jetty/) that is built into the [CAS overlay project](http://bit.ly/1PPY47q).
 * You must check the `Dockerfile` to ensure the right branch from the [CAS overlay project](http://bit.ly/1PPY47q) is pulled/cloned.
 * Check the [CAS overlay project](http://bit.ly/1PPY47q) itself to figure out the targetted CAS release.
 
-## CAS Overlay
-
-* The build will automatically copy the contents of the `src\main\webapp` to the docker image. 
-* You can set up your own custom overlay project based on a directory structure that mimics that of the CAS web application itself. 
- 
 ### SSL
 
 * Update the `thekeystore` file with the server certificate and chain if you need access the CAS server via HTTPS. 
 * The password for the keystore is `changeit`.
 * The build will automatically copy the keystore file to the image
-* The embedded Jetty is pre-configured to use that keystore for HTTPS requests.
+* The embedded container packaged in the overlay is pre-configured to use that keystore for HTTPS requests.
 
 ## Build [![](https://badge.imagelayers.io/apereo/cas:latest.svg)](https://imagelayers.io/?images=apereo/cas:latest 'apereo cas')
 
@@ -61,8 +55,6 @@ The image will be built as `apereo/cas:v$CasVersion`.
 * Log into the Docker Hub via the following command:
 
 ```bash
-docker-machine ssh default
-docker login -u username -p password -e email
+docker login -u username -p password
 docker push apereo/cas:v$CasVersion
 ```
-
