@@ -42,7 +42,6 @@ RUN cd / \
     && mkdir -p /etc/cas \
     && mkdir -p /etc/cas/services \
     && mkdir -p /etc/cas/config \
-    && mkdir -p /etc/cas/config \
     && mkdir -p cas-overlay/bin \
     && cp -f cas-overlay/etc/cas/config/*.* /etc/cas/config;
 
