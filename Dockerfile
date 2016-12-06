@@ -4,7 +4,7 @@ MAINTAINER Apereo Foundation
 
 ENV PATH=$PATH:$JRE_HOME/bin
 
-RUN yum -y install wget tar git-all \
+RUN yum -y install wget tar git \
     && yum -y clean all
 
 # Download Azul Java, verify the hash, and install \
