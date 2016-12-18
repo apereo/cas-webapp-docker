@@ -4,7 +4,7 @@ MAINTAINER Apereo Foundation
 
 ENV PATH=$PATH:$JRE_HOME/bin
 
-RUN yum -y install wget tar git-all \
+RUN yum -y install wget tar unzip git-all \
     && yum -y clean all
 
 # Download Azul Java, verify the hash, and install \
@@ -19,6 +19,13 @@ RUN set -x; \
     && tar -zxvf zulu$zulu_version-jdk$java_version-linux_x64.tar.gz -C /opt \
     && rm zulu$zulu_version-jdk$java_version-linux_x64.tar.gz \
     && ln -s /opt/zulu$zulu_version-jdk$java_version-linux_x64/jre/ /opt/jre-home;
+
+RUN cd / \
+	&& wget http://www.azulsystems.com/sites/default/files/images/ZuluJCEPolicies.zip \
+    && unzip ZuluJCEPolicies.zip \
+    && mv -f ZuluJCEPolicies/*.jar /opt/jre-home/lib/security \
+    && rm ZuluJCEPolicies.zip; 
+
 
 # Set up Oracle Java properties
 # RUN set -x; \
