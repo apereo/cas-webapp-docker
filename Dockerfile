@@ -4,7 +4,7 @@ MAINTAINER Apereo Foundation
 
 ENV PATH=$PATH:$JRE_HOME/bin
 
-RUN yum -y install wget tar unzip git-all \
+RUN yum -y install wget tar unzip git \
     && yum -y clean all
 
 # Download Azul Java, verify the hash, and install \
@@ -48,7 +48,6 @@ RUN cd / \
     && git clone --depth 1 --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay \
     && mkdir -p /etc/cas \
     && mkdir -p /etc/cas/services \
-    && mkdir -p /etc/cas/config \
     && mkdir -p /etc/cas/config \
     && mkdir -p cas-overlay/bin \
     && cp -f cas-overlay/etc/cas/config/*.* /etc/cas/config;
