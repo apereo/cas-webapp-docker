@@ -52,9 +52,7 @@ The image will be built as `apereo/cas:v$CasVersion`.
 * New images shall be released at the time of a new CAS server release.
 * Image versions are reflected in the `build|run.sh` files and need to be updated per CAS/Image release.
 * Images are published to [https://hub.docker.com/r/apereo/cas/](https://hub.docker.com/r/apereo/cas/)
-* Log into the Docker Hub via the following command:
 
 ```bash
-docker login -u username -p password
-docker push apereo/cas:v$CasVersion
+./push.sh $CasVersion
 ```
