@@ -11,7 +11,7 @@ A docker image for CAS server. Images are tagged to match CAS server releases.
 
 ## Requirements
 
-* Docker version `1.9.x` ~ `1.12.3`
+* Docker version `1.9.x` ~ `1.13.x`
 
 ## Configuration
 
