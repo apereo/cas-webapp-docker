@@ -9,9 +9,9 @@ RUN yum -y install wget tar unzip git \
 
 # Download Azul Java, verify the hash, and install \
 RUN set -x; \
-    java_version=8.0.112; \
-    zulu_version=8.19.0.1; \
-    java_hash=3f95d82bf8ece272497ae2d3c5b56c3b; \
+    java_version=8.0.131; \
+    zulu_version=8.21.0.1; \
+    java_hash=1931ed3beedee0b16fb7fd37e069b162; \
     
     cd / \
     && wget http://cdn.azul.com/zulu/bin/zulu$zulu_version-jdk$java_version-linux_x64.tar.gz \
@@ -21,7 +21,7 @@ RUN set -x; \
     && ln -s /opt/zulu$zulu_version-jdk$java_version-linux_x64/jre/ /opt/jre-home;
 
 RUN cd / \
-	&& wget http://www.azulsystems.com/sites/default/files/images/ZuluJCEPolicies.zip \
+	&& wget http://cdn.azul.com/zcek/bin/ZuluJCEPolicies.zip \
     && unzip ZuluJCEPolicies.zip \
     && mv -f ZuluJCEPolicies/*.jar /opt/jre-home/lib/security \
     && rm ZuluJCEPolicies.zip; 
