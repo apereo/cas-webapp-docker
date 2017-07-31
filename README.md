@@ -25,13 +25,13 @@ A docker image for CAS server. Images are tagged to match CAS server releases.
 
 * Update the `thekeystore` file with the server certificate and chain if you need access the CAS server via HTTPS. 
 * The password for the keystore is `changeit`.
-* The build will automatically copy the keystore file to the image
-* The embedded container packaged in the overlay is pre-configured to use that keystore for HTTPS requests.
+* The build will automatically copy the keystore file to the image. The embedded container packaged in the overlay is pre-configured to use that keystore for HTTPS requests.
+* The build will also auto-copy configuration files under the `etc/cas` directory to the corresponding locations inside the image.
 
 ## Build [![](https://badge.imagelayers.io/apereo/cas:latest.svg)](https://imagelayers.io/?images=apereo/cas:latest 'apereo cas')
 
 **Make sure** that both `build.sh` and `run.sh` are updated to build the appropriate tag. Docker tags **MUST** correspond
-to CAS server versions. 
+to CAS server versions.
 
 **NOTE:** On windows, you may want to run `bash` first so you can execute shell scripts.
 
