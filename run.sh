@@ -12,7 +12,8 @@ fi
 
 if [ ! -z "$cas_version" ]
   then
-	docker run -p 8080:8080 -p 8443:8443 --name="cas" apereo/cas:v$cas_version
+	docker run -d -p 8080:8080 -p 8443:8443 --name="cas" apereo/cas:v$cas_version
+	docker logs -f cas
   else
   	echo "No image tag is provided."	
 fi
