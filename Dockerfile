@@ -47,15 +47,12 @@ RUN cd / \
 RUN cd / \
     && git clone --depth 1 --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay \
     && mkdir -p /etc/cas \
-    && mkdir -p /etc/cas/services \
-    && mkdir -p /etc/cas/config \
-    && mkdir -p cas-overlay/bin \
-    && cp -f cas-overlay/etc/cas/config/*.* /etc/cas/config;
+    && mkdir -p cas-overlay/bin;
 
 COPY thekeystore /etc/cas/
 COPY bin/*.* cas-overlay/bin/
-COPY etc/cas/config/*.* /etc/cas/config/*.*
-COPY etc/cas/services/*.* /etc/cas/services/*.*
+COPY etc/cas/config/*.* /cas-overlay/etc/cas/config/
+COPY etc/cas/services/*.* /cas-overlay/etc/cas/services/
 
 RUN chmod -R 750 cas-overlay/bin \
     && chmod 750 cas-overlay/mvnw \
