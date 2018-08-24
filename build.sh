@@ -10,7 +10,7 @@ fi
 if [ ! -z "$cas_version" ]
   then
   	echo "Build CAS docker image tagged as v$cas_version"
-	docker build --tag="apereo/cas:v$cas_version" . && echo "Built CAS image successfully tagged as v$cas_version" && docker images "apereo/cas:v$cas_version"
+	docker build --tag="apereo/cas:v$cas_version" --build-arg cas_version=$cas_version . && echo "Built CAS image successfully tagged as v$cas_version" && docker images "apereo/cas:v$cas_version"
   else
   	echo "No image tag is provided."	
 fi
