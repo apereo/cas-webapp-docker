@@ -3,6 +3,7 @@ FROM centos:centos7
 MAINTAINER Apereo Foundation
 
 ENV PATH=$PATH:$JRE_HOME/bin
+ARG cas_version
 
 RUN yum -y install wget tar unzip git \
     && yum -y clean all
@@ -45,7 +46,7 @@ RUN cd / \
 
 # Download the CAS overlay project \
 RUN cd / \
-    && git clone --depth 1 --single-branch --branch=5.3 https://github.com/apereo/cas-overlay-template.git cas-overlay \
+    && git clone --depth 1 --single-branch -b $cas_version https://github.com/apereo/cas-overlay-template.git cas-overlay \
     && mkdir -p /etc/cas \
     && mkdir -p cas-overlay/bin;
 

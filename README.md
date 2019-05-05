@@ -31,7 +31,7 @@ A docker image for CAS server. Images are tagged to match CAS server releases.
 ## Build [![](https://badge.imagelayers.io/apereo/cas:latest.svg)](https://imagelayers.io/?images=apereo/cas:latest 'apereo cas')
 
 **Make sure** that both `build.sh` and `run.sh` are updated to build the appropriate tag. Docker tags **MUST** correspond
-to CAS server versions.
+to CAS server versions. Also, make sure the version matches a branch name on the [CAS overlay project](https://github.com/apereo/cas-overlay-template/branches).
 
 **NOTE:** On windows, you may want to run `bash` first so you can execute shell scripts.
 
