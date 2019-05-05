@@ -13,7 +13,6 @@ RUN set -x; \
     java_version=11.0.3; \
     zulu_version=11.31.11-ca; \
     java_hash=20218b15ae5ef1318aed1a3d5dde3219; \
-
     cd / \
     && wget http://cdn.azul.com/zulu/bin/zulu$zulu_version-jdk$java_version-linux_x64.tar.gz \
     && echo "$java_hash  zulu$zulu_version-jdk$java_version-linux_x64.tar.gz" | md5sum -c - \
@@ -33,6 +32,7 @@ COPY etc/cas/config/*.* /cas-overlay/etc/cas/config/
 COPY etc/cas/services/*.* /cas-overlay/etc/cas/services/
 
 RUN chmod 750 cas-overlay/gradlew \
+    && chmod 750 cas-overlay/*.sh \
     && chmod 750 /opt/java-home/bin/java;
 
 EXPOSE 8080 8443
