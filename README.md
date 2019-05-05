@@ -10,7 +10,7 @@ A docker image for CAS server. Images are tagged to match CAS server releases.
 
 ## Requirements
 
-* Docker version `1.9.x` ~ `1.13.x`
+* Docker version `1.9.x` ~ `18.x`
 
 ## Configuration
 
