@@ -27,6 +27,7 @@ if [ ! -z "$cas_version" ]
   then
   	echo "Building CAS docker image tagged as ${YELLOW}[$image_tag]${NORMAL} \
 from branch ${YELLOW}[$branch_name]${NORMAL}"
+    read -p "Press any key to continue..." any_key;
 
 	  docker build --tag="apereo/cas:$image_tag" --build-arg cas_version=$cas_version . && \
         echo "Built CAS image successfully tagged as $image_tag" && \

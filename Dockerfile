@@ -19,7 +19,7 @@ RUN set -x; \
     && echo "$java_hash  zulu$zulu_version-jdk$java_version-linux_x64.tar.gz" | md5sum -c - \
     && tar -zxvf zulu$zulu_version-jdk$java_version-linux_x64.tar.gz -C /opt \
     && rm zulu$zulu_version-jdk$java_version-linux_x64.tar.gz \
-    && ln -s /opt/zulu$zulu_version-jdk$java_version-linux_x64/jre/ /opt/jre-home;
+    && ln -s /opt/zulu$zulu_version-jdk$java_version-linux_x64/ /opt/java-home;
 
 # Download the CAS overlay project \
 RUN cd / \
@@ -33,13 +33,13 @@ COPY etc/cas/config/*.* /cas-overlay/etc/cas/config/
 COPY etc/cas/services/*.* /cas-overlay/etc/cas/services/
 
 RUN chmod 750 cas-overlay/gradlew \
-    && chmod 750 /opt/jre-home/bin/java;
+    && chmod 750 /opt/java-home/bin/java;
 
 EXPOSE 8080 8443
 
 WORKDIR /cas-overlay
 
-ENV JAVA_HOME /opt/jre-home
+ENV JAVA_HOME /opt/java-home
 ENV PATH $PATH:$JAVA_HOME/bin:.
 
 RUN ./gradlew clean build && rm -rf /root/.gradle
