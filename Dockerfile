@@ -42,6 +42,9 @@ WORKDIR /cas-overlay
 ENV JAVA_HOME /opt/java-home
 ENV PATH $PATH:$JAVA_HOME/bin:.
 
-RUN ./gradlew clean build && rm -rf /root/.gradle
+RUN mkdir -p ~/.gradle \
+    && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties \
+    && ./gradlew clean build --parallel \
+    && rm -rf /root/.gradle
 
 CMD ["/cas-overlay/bin/run-cas.sh"]
