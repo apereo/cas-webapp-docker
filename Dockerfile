@@ -47,4 +47,4 @@ RUN mkdir -p ~/.gradle \
     && ./gradlew clean build --parallel \
     && rm -rf /root/.gradle
 
-CMD ["/cas-overlay/bin/run-cas.sh"]
+CMD ["/cas-overlay/run-cas.sh"]
